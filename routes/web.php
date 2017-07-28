@@ -11,9 +11,7 @@
 |
 */
 /* pruevas de rutas   */
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', 'IndexController@getHome');
 
 Route::get('login', function(){
 	return view('user.login');
@@ -23,21 +21,13 @@ Route::get('logout', function(){
 	return view('user.logout');
 });
 
-Route::get('catalog', function(){
-	return view('catalog.catalog');
-});
+Route::get('catalog', 'CatalogController@getIndex');
 
-Route::get('catalog/show/{id}', function($id){
-	return view('catalog.show',array('id'=>$id));
-});
+Route::get('catalog/show/{id}', 'CatalogController@getShow');
 
-Route::get('catalog/create', function(){
-	return view('catalog.create');
-});
+Route::get('catalog/create', 'CatalogController@getCreate');
 
-Route::get('catalog/edit/{id}', function($id){
-	return view('catalog.edit',array('id'=>$id));
-});
+Route::get('catalog/edit/{id}', 'CatalogController@getEdit');
 
 /* 
 Route::get('prueba', function () {
