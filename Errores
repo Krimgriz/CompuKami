@@ -1,0 +1,22 @@
+una vez clonado el repositorio se pondra este comando en cmd
+
+composer install
+para instalar las dependencias de laravel
+
+comandos en caso del error Whoops, looks like something went wrong.
+
+crear el archivo .env con el archivo .env.example
+en cmd ejecutar los siguientes comandos en la carpeta del proyecto
+
+php artisan key:generate
+php artisan config:clear
+php artisan config:cache
+
+y listo
+
+
+
+
+
+
+en caso de surgir un error nuevo intentar encontrarle solucion y agregarlo a este archivo
