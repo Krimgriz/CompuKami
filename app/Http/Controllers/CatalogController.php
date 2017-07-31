@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\array_peliculas
 
 class CatalogController extends Controller{
 	public function getIndex(){
