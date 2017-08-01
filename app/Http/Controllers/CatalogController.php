@@ -7,13 +7,13 @@ use App\array_peliculas;
 
 class CatalogController extends Controller{
 	public function getIndex(){
-		$this->arrayPeliculas;
+		//$this->arrayPeliculas;
 		return view('catalog.catalog');
 	}
 
 	public function getShow($id){
-		$this->arrayPeliculas[$id];
-		return view('catalog.show',array('id'=>$id));
+		//$this->arrayPeliculas[$id];
+		return view('catalog.show'/*,array('id'=>$id)*/);
 	}
 
 	public function getCreate(){
@@ -21,6 +21,6 @@ class CatalogController extends Controller{
 	}
 
 	public function getEdit($id){
-		return view('catalog.edit',array('id'=>$id));
+		return view('catalog.edit'/*,array('id'=>$id)*/);
 	}
 }
