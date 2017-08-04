@@ -35,9 +35,10 @@
             <ul class="nav navbar-nav navbar-right">
             @if(Auth::check())        
                 <li>
-                    <a href="{{url('/logout')}}">
+                    <a href="{{url('/logout')}} ">
                         <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
                         Cerrar Sesión
+                        
                     </a>
                 </li>
             @else

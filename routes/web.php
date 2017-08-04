@@ -10,17 +10,20 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', 'IndexController@getHome');
+Route::get('/', 'HomeController@getHome');
 
 /* pruevas de rutas   
 Route::get('login', function(){
 	return view('user.login');
 });
 
-Route::get('logout', function(){
-	return view('user.logout');
-});
 */
+
+Route::get('logout', function(){
+	Auth::logout();
+	return view('auth.login');
+});
+
 Route::get('catalog', 'CatalogController@getIndex');
 
 Route::get('catalog/show/{id}', 'CatalogController@getShow');
@@ -32,6 +35,7 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::get('catalog/edit/{id}', 'CatalogController@getEdit');
 
 });
+
 
 Auth::routes();
 
