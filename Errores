@@ -40,5 +40,11 @@ function boot()
 
 ---------------------------ERROR3---------------------------------
 
+recordatorio: para el uso de sesiones automatico que implementa laravel se debe de dejar el modelo de User en su lugar 
+se encuentra en la carpeta /App/User
+
+---------------------------ERROR4--------------------------------
+
+
 --------------------------------------------------------------------------------------------------
 en caso de surgir un error nuevo intentar encontrarle solucion y agregarlo a este archivo
