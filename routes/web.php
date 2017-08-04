@@ -10,9 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-/* pruevas de rutas   */
 Route::get('/', 'IndexController@getHome');
 
+/* pruevas de rutas   
 Route::get('login', function(){
 	return view('user.login');
 });
@@ -20,25 +20,19 @@ Route::get('login', function(){
 Route::get('logout', function(){
 	return view('user.logout');
 });
-
+*/
 Route::get('catalog', 'CatalogController@getIndex');
 
 Route::get('catalog/show/{id}', 'CatalogController@getShow');
 
-Route::get('catalog/create', 'CatalogController@getCreate');
+Route::group(['middleware' => 'auth'], function() {	
 
-Route::get('catalog/edit/{id}', 'CatalogController@getEdit');
+	Route::get('catalog/create', 'CatalogController@getCreate');
 
-/* 
-Route::get('prueba', function () {
-    return view('pruebas.prueba');
-});
-Route::get('/', function () {
-    return 'Hola Mundo';
+	Route::get('catalog/edit/{id}', 'CatalogController@getEdit');
+
 });
 
-Route::get('foo/bar', function(){
-	return '¡Hola mundo!';
-});
+Auth::routes();
 
- */
+Route::get('/home', 'HomeController@index')->name('home');

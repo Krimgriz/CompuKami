@@ -12,11 +12,12 @@
 			<p><b>Resumen:</b> {{$arrayPeliculas[0]->synopsis}}</p>
 		</div>
 		<div class="text-center">
-			
+			@if(Auth::check())
 			<button type="button " class="btn btn-danger" >Devolver Pelicula</button>
 			<a href="{{ url('/catalog/edit/'.$arrayPeliculas[0]->id ) }}">
 				<button type="button" class="btn btn-warning">Editar Pelicula</button>
 			</a>
+			@endif
 			<a href="{{url('/catalog')}}">
 				<button type="button" class="btn btn-default">Volver a la Lista</button>
 			</a>

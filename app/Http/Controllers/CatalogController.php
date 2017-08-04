@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use DB;
 use Illuminate\Http\Request;
-use App\Movie;
+use App\Models\Movie;
 
 class CatalogController extends Controller{
 	

@@ -1,3 +1,8 @@
+-----------------------------ARCHIVO DE SOLUCION DE ERRORES-----------------------------------
+---en caso de surgir un error nuevo intentar encontrarle solucion y agregarlo a este archivo--
+----------------------------------------------------------------------------------------------
+
+------------------------ERROR1------------------------------
 una vez clonado el repositorio se pondra este comando en cmd
 
 composer install
@@ -13,10 +18,27 @@ php artisan config:clear
 php artisan config:cache
 
 y listo
+--------------------------ERROR2----------------------------
+en caso de tener el error
+[Illuminate\Database\QueryException]                                                         
+  SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was too long; max key  
+   length is 767 bytes (SQL: alter table `users` add unique `users_email_unique`(`email`))
+
+[PDOException]                                                                               
+  SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was too long; max key  
+   length is 767 bytes  
 
 
+que susede a la hora de hacer la migracion de la base de datos a de la tabla users se debera añadir las siguientes lineas en el archivo   AppServiceProvider.php
 
+use Illuminate\Support\Facades\Schema;  <---- LINEA A AÑADIR
 
+function boot()
+{
+    Schema::defaultStringLength(191); <----- esta linea se tiene que añadir en el metodo boot que ya existe
+}
 
+---------------------------ERROR3---------------------------------
 
+--------------------------------------------------------------------------------------------------
 en caso de surgir un error nuevo intentar encontrarle solucion y agregarlo a este archivo

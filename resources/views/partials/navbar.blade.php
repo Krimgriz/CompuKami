@@ -14,7 +14,6 @@
             </a>
         </div>
 
-        @if( true || Auth::check() )
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li{{ Request::is('catalog*') && !Request::is('catalog/create')? ' class=active' : ''}}>
@@ -23,23 +22,33 @@
                         Catálogo
                     </a>
                 </li>
+        @if( Auth::check() )
                 <li{{ Request::is('catalog/create') ? ' class=active' : ''}}>
                     <a href="{{url('/catalog/create')}}">
                         <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
                         Nueva película
                     </a>
                 </li>
+        @endif
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
+            @if(Auth::check())        
                 <li>
                     <a href="{{url('/logout')}}">
                         <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-                        Cerrar sesión
+                        Cerrar Sesión
                     </a>
                 </li>
+            @else
+                <li>
+                    <a href="{{url('/login')}}">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                        Login
+                    </a>
+                </li>
+            @endif
             </ul>
         </div>
-        @endif
     </div>
 </nav>
