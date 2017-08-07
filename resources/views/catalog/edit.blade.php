@@ -15,8 +15,11 @@
 
 			<div class="panel-body" style="padding:30px">
 
-				<form action="">
+				<form action="{{action('CatalogController@putEdit', $movie->id)}}" method="post">
 					
+					{{ method_field('PUT') }}
+
+					{{ csrf_field() }}
 					
 					<input type="hidden" name="id" id="id" value="{{ $arrayPeliculas[0]->id }}">
 

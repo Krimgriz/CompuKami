@@ -17,7 +17,7 @@
 
 			<div class="panel-body" style="padding:30px">
 
-				<form action="">
+				<form action="postEdit" method="post">
 					
 					
 					{{-- TODO: Protección contra CSRF --}}
