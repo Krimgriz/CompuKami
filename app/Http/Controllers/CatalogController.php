@@ -41,7 +41,8 @@ class CatalogController extends Controller{
 		$p->synopsis = $request->input('synopsis');
 		$p->save();
 
-		
+		return view('catalog.catalog')->with('arrayPeliculas', Movie::all())->withErrors(Notification::success('La película se ha guardado correctamente'));
+
 		
 	}
 
