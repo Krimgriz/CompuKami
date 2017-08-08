@@ -17,10 +17,11 @@
 
 			<div class="panel-body" style="padding:30px">
 
-				<form action="postEdit" method="post">
-					
-					
-					{{-- TODO: Protección contra CSRF --}}
+				<form action="{{action('CatalogController@postCreate')}} " method="POST">
+
+				{{ method_field('POST') }}
+
+				{{ csrf_field() }}
 
 					<div class="form-group">
 						<label for="title">Título</label>

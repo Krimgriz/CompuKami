@@ -13,9 +13,15 @@
 		</div>
 		<div class="text-center">
 			@if(Auth::check())
-			<button type="button " class="btn btn-danger" >Devolver Pelicula</button>
+			<button type="button " class="btn btn-danger" >Eliminar Pelicula</button>
+			
+				@if($arrayPeliculas[0]->title == 1)
+					<button type="button " class="btn btn-success" >Rentar Pelicula</button>
+				@else
+					<button type="button " class="btn btn-warning" >Devolver Pelicula</button>
+				@endif
 			<a href="{{ url('/catalog/edit/'.$arrayPeliculas[0]->id ) }}">
-				<button type="button" class="btn btn-warning">Editar Pelicula</button>
+				<button type="button" class="btn btn-info">Editar Pelicula</button>
 			</a>
 			@endif
 			<a href="{{url('/catalog')}}">

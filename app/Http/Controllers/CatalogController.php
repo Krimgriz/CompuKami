@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use DB;
+use App\User;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Movie;
+use Notification;
 
 class CatalogController extends Controller{
 	
@@ -25,8 +28,8 @@ class CatalogController extends Controller{
 	}
 
 	public function getEdit($id){
-		$arrayPeliculas = Movie::orderBy('id')->select('id', 'title', 'year', 'director', 'poster', 'rented', 'synopsis')->where('id', $id)->get();  
-		return view('catalog.edit',array('id'=>$id))->with('arrayPeliculas',$arrayPeliculas);
+		$Pelicula = Movie::findOrFail($id);
+		return view('catalog.edit')->with('Pelicula', $Pelicula);
 	}
 
 	public function postCreate(Request $request){		 
@@ -37,7 +40,8 @@ class CatalogController extends Controller{
 		$p->poster = $request->input('poster');
 		$p->synopsis = $request->input('synopsis');
 		$p->save();
-		return view('catalog.catalog')->with('arrayPeliculas', Movie::all())->withErrors(Notification::success('La película se ha guardado correctamente'));
+
+		
 		
 	}
 
@@ -55,5 +59,14 @@ class CatalogController extends Controller{
 		
 		$arrayPeliculas = Movie::orderBy('id')->select('id', 'title', 'year', 'director', 'poster', 'rented', 'synopsis')->where('id', $id)->get();
 		return view('catalog.show',array('id'=>$id))->with('arrayPeliculas',$arrayPeliculas);
+	}
+
+	public function putRent(){
+	}
+	
+	public function putReturn(){
+	}
+	
+	public function deleteMovie(){
 	}
 }
