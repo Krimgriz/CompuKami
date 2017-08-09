@@ -57,8 +57,7 @@ class CatalogController extends Controller{
 		$movie->synopsis = $request->input('synopsis');
 		$movie->save();
 		$peliculas = Movie::orderBy('id')->select('id', 'title', 'year', 'director', 'poster', 'rented', 'synopsis')->where('id', $id)->get()->first();
-		return view('catalog.show',array('id'=>$id))->with('peliculas',$peliculas)>withErrors(
-		Notification::success('La película se ha editado correctamente'));
+		return view('catalog.show',array('id'=>$id))->with('peliculas',$peliculas)->withErrors(Notification::success('La película se ha editado correctamente'));
 	}
 
 	public function putRent($id){
@@ -81,7 +80,8 @@ class CatalogController extends Controller{
 	public function deleteMovie($id){
 		$movie = Movie::findOrFail($id);
 		$movie->delete();
-		return view('catalog.catalog')->with('arrayPeliculas', Movie::all())->withErrors(Notification::success('Película borrada'));
+		$arrayPeliculas = Movie::orderBy('id')->select('id','title', 'year','director','poster','rented','synopsis')->get();
+		return view('catalog.catalog')->with('arrayPeliculas',$arrayPeliculas)->withErrors(Notification::success('Película borrada'));
 
 	}
 }

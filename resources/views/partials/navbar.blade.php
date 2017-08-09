@@ -22,14 +22,14 @@
                         Catálogo
                     </a>
                 </li>
-        @if( Auth::check() )
+            @if( Auth::check() )
                 <li{{ Request::is('catalog/create') ? ' class=active' : ''}}>
                     <a href="{{url('/catalog/create')}}">
                         <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
                         Nueva película
                     </a>
                 </li>
-        @endif
+            @endif
             </ul>
 
             <ul class="nav navbar-nav navbar-right">

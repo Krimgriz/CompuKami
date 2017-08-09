@@ -15,11 +15,10 @@
 			@if(Auth::check())
 			
 				<form action="{{action('CatalogController@deleteMovie', $peliculas->id)}}" method="POST" style="display:inline">
-					{{ method_field('PUT') }}
+					{{ method_field('DELETE') }}
 					{{ csrf_field() }}
-					<button type="button " class="btn btn-danger" >Eliminar Pelicula</button>
+					<button type="submit" class="btn btn-danger" >Eliminar Pelicula</button>
 				</form>
-				
 				
 					@if($peliculas->rented==true)
 						<form action="{{action('CatalogController@putReturn', $peliculas->id)}}" method="POST" style="display:inline">
