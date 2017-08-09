@@ -15,7 +15,7 @@
 
 			<div class="panel-body" style="padding:30px">
 
-				<form action="" method="post">
+				<form action="{{action('CatalogController@putEdit', $Pelicula->id)}}" method="post">
 					
 					{{ method_field('PUT') }}
 

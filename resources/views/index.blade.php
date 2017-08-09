@@ -17,7 +17,6 @@
 
     <div class="container">
         @notification()
-        
         @yield('content')
     </div>
 </body>

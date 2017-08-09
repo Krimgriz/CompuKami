@@ -18,9 +18,7 @@
 			<div class="panel-body" style="padding:30px">
 
 				<form action="{{action('CatalogController@postCreate')}} " method="POST">
-
 				{{ method_field('POST') }}
-
 				{{ csrf_field() }}
 
 					<div class="form-group">

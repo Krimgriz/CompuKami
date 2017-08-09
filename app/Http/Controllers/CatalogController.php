@@ -19,8 +19,9 @@ class CatalogController extends Controller{
 	}
 
 	public function getShow($id){
-		$arrayPeliculas = Movie::orderBy('id')->select('id', 'title', 'year', 'director', 'poster', 'rented', 'synopsis')->where('id', $id)->get();
-		return view('catalog.show',array('id'=>$id))->with('arrayPeliculas',$arrayPeliculas);
+		$peliculas = Movie::orderBy('id')->select('id', 'title', 'year', 'director', 'poster', 'rented', 'synopsis')->where('id', $id)->get()->first();
+		//dd($peliculas);
+		return view('catalog.show',array('id'=>$id))->with('peliculas',$peliculas);
 	}
 
 	public function getCreate(){
@@ -55,19 +56,32 @@ class CatalogController extends Controller{
 		$movie->poster = $request->input('poster');
 		$movie->synopsis = $request->input('synopsis');
 		$movie->save();
-
-		Notification::success('La película se ha editado correctamente');
-		
-		$arrayPeliculas = Movie::orderBy('id')->select('id', 'title', 'year', 'director', 'poster', 'rented', 'synopsis')->where('id', $id)->get();
-		return view('catalog.show',array('id'=>$id))->with('arrayPeliculas',$arrayPeliculas);
+		$peliculas = Movie::orderBy('id')->select('id', 'title', 'year', 'director', 'poster', 'rented', 'synopsis')->where('id', $id)->get()->first();
+		return view('catalog.show',array('id'=>$id))->with('peliculas',$peliculas)>withErrors(
+		Notification::success('La película se ha editado correctamente'));
 	}
 
-	public function putRent(){
+	public function putRent($id){
+		$movie = Movie::findOrFail($id);
+		$movie ->rented = 1;
+		$movie -> save();
+		$peliculas = Movie::orderBy('id')->select('id', 'title', 'year', 'director', 'poster', 'rented', 'synopsis')->where('id', $id)->get()->first();
+		return view('catalog.show',array('id'=>$id))->with('peliculas',$peliculas)->withErrors(Notification::success('Película Rentada'));
+	
 	}
 	
-	public function putReturn(){
+	public function putReturn($id){
+		$movie = Movie::findOrFail($id);
+		$movie ->rented = 0;
+		$movie -> save();
+		$peliculas = Movie::orderBy('id')->select('id', 'title', 'year', 'director', 'poster', 'rented', 'synopsis')->where('id', $id)->get()->first();
+		return view('catalog.show',array('id'=>$id))->with('peliculas',$peliculas)->withErrors(Notification::success('Película Devuelta'));
 	}
 	
-	public function deleteMovie(){
+	public function deleteMovie($id){
+		$movie = Movie::findOrFail($id);
+		$movie->delete();
+		return view('catalog.catalog')->with('arrayPeliculas', Movie::all())->withErrors(Notification::success('Película borrada'));
+
 	}
 }
