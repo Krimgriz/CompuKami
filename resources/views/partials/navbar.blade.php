@@ -1,3 +1,5 @@
+
+
 <nav class="navbar navbar-default">
     <div class="container">
 
@@ -32,7 +34,15 @@
             @endif
             </ul>
 
+
             <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </li>
+
             @if(Auth::check())        
                 <li>
                     <a href="{{url('/logout')}} ">
@@ -46,6 +56,11 @@
                     <a href="{{url('/login')}}">
                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                         Login
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('register') }}">
+                        Register
                     </a>
                 </li>
             @endif

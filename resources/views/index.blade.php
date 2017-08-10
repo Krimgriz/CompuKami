@@ -7,6 +7,7 @@
 
     <title>CompuKami</title>
     <link rel="stylesheet" href="{{ url('/assets/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url('/assets/bootstrap/css/bootstrap.css') }}">
     <script src="{{ url('/assets/bootstrap/js/bootstrap.min.js') }}"></script>
 
 </head>
