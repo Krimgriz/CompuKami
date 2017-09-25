@@ -170,6 +170,11 @@ return [
         Laravel\Tinker\TinkerServiceProvider::class,
 
         /*
+         * paquetes agregados para generacion de PDF
+         */
+
+
+        /*
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,
@@ -227,7 +232,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Notification' => Krucas\Notification\Facades\Notification::class,
-
+        /*alias para generar pdf pdf*/
     ],
 
 ];

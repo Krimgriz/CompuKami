@@ -49,3 +49,14 @@ Route::group(['middleware' => 'auth'], function() {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+//ruta para pruebas y sus diversas rutas
+
+Route::get('pruebas', function(){
+	return view('pruebas.pruebas');
+});
+Route::get('pruebas/PDF', function(){
+	return view('pruebas.PDF.prueba');
+});
+Route::get('pruebas/graficas', function(){
+	return view('pruebas.graficas.graficas');
+});
