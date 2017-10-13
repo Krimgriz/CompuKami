@@ -24,17 +24,20 @@
         data.addColumn('string', 'Topping');
         data.addColumn('number', 'Slices');
         data.addRows([
-          ['Mushrooms', 1],
-          ['Onions', 1],
-          ['Olives', 2],
-          ['Zucchini', 2],
-          ['Pepperoni', 1]
+          ['Robos', 58],
+          ['Asesinatos', 10],
+          ['Lesiones', 20],
+          ['Amenazas', 50],
+          ['Amenazas', 20],
+          ['Amenazas', 20],
+          ['Amenazas', 20],
+          ['Pepperoni', 10]
         ]);
 
         // Set options for Sarah's pie chart.
         var options = {title:'How Much Pizza Sarah Ate Last Night',
-                       width:400,
-                       height:300};
+                       width:1000,
+                       height:900};
 
         // Instantiate and draw the chart for Sarah's pizza.
         var chart = new google.visualization.PieChart(document.getElementById('Sarah_chart_div'));
@@ -68,12 +71,20 @@
     </script>
   </head>
   <body>
+    <center>
+      <table class="columns">
+        <tr>
+          <center>  
+            <td><div id="Sarah_chart_div" style="border: 1px solid #ccc"></div></td>
+          </center>
+        </tr>
+        <tr>
+          <center>
+            <td><div id="Anthony_chart_div" style="border: 1px solid #ccc"></div></td>
+          </center>
+        </tr>  
+      </table>
+    </center>
     <!--Table and divs that hold the pie charts-->
-    <table class="columns">
-      <tr>
-        <td><div id="Sarah_chart_div" style="border: 1px solid #ccc"></div></td>
-        <td><div id="Anthony_chart_div" style="border: 1px solid #ccc"></div></td>
-      </tr>
-    </table>
   </body>
 </html>
